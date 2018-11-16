@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./src", "./src/scripts"],
+      "extensions": [".ts", ".vue", ".scss"],
+      "alias": {
+        "@ts": "./src/scripts",
+        "@scss": "./src/styles"
+      }
+    }]
+  ]
+}

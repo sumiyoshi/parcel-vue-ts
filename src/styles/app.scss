@@ -1,0 +1,8 @@
+/* 変数 */
+$app-color: blue;
+
+p {
+  font-size: 2em;
+  text-align: center;
+  color: $app-color;
+}
