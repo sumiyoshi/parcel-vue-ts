@@ -8,10 +8,11 @@
 
 <script type="ts">
     import CountUseCase from "@ts/Domain/UseCase/CountUseCase";
+    import Translator from "@ts/Domain/Translator";
     export default  {
         data() {
             return {
-                counter: {count: 0}
+                counter: Translator.counter()
             };
         },
         methods: {
