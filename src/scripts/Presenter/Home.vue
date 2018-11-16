@@ -1,12 +1,20 @@
 <template>
     <div>
         <p>
-            Hello World
+            {{ msg }}
         </p>
     </div>
 </template>
 
 <script type="ts">
+
+    export default  {
+        data() {
+            return {
+                msg: 'Hello World!'
+            };
+        },
+    };
 
 </script>
 
