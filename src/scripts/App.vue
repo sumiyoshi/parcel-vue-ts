@@ -9,5 +9,5 @@
 </template>
 
 <script type="ts">
-    import "../styles/app.scss";
+    import "@scss/app.scss";
 </script>

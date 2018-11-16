@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from 'presenter/home.vue'
-import Counter from 'presenter/counter.vue'
+import Home from 'Presenter/Home.vue'
+import Counter from 'Presenter/Counter.vue'
 
 Vue.use(Router);
 
