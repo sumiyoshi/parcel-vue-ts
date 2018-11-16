@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
-    "module": "es2015",
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@ts/*": ["src/scripts/*"],
       "@scss/*": ["src/styles/*"]
-    }
+    },
+    "importHelpers": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true
   },
   "include": [
     "src/**/*.ts",

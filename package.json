@@ -6,15 +6,13 @@
   "scripts": {
     "start": "NODE_ENV=development parcel ./src/static/index.html",
     "build": "NODE_ENV=production parcel  build ./src/static/index.html -d public",
-    "test:e2e": "NODE_ENV=test vue-cli-service test:e2e",
-    "test:unit": "NODE_ENV=test vue-cli-service test:unit"
+    "test": "NODE_ENV=test vue-cli-service test:unit"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.1.0",
     "@types/mocha": "^5.2.4",
-    "@vue/cli-plugin-e2e-nightwatch": "^3.1.1",
     "@vue/cli-plugin-typescript": "^3.1.1",
     "@vue/cli-plugin-unit-mocha": "^3.1.1",
     "@vue/cli-service": "^3.1.4",
