@@ -7,6 +7,7 @@
 </template>
 
 <script type="ts">
+
 </script>
 
 <style scoped lang="scss">
