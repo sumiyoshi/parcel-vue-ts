@@ -1,9 +1,10 @@
 {
   "plugins": [
     ["module-resolver", {
-      "root": ["./src", "./src/scripts"],
+      "root": ["./src/scripts"],
       "extensions": [".ts", ".vue", ".scss"],
       "alias": {
+        "@": "./src",
         "@ts": "./src/scripts",
         "@scss": "./src/styles"
       }
