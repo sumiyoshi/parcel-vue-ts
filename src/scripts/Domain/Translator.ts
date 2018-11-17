@@ -6,4 +6,9 @@ export default class Translator {
         };
     }
 
+    static todo(name: string = ""): Todo {
+        return {
+            name: name
+        };
+    }
 }
