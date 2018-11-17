@@ -4,16 +4,16 @@
         <div class="title">Todo</div>
 
         <!-- タスク入力 -->
-        <el-form :model="todo" :rules="todoRules" ref="todo">
+        <el-form :model="form.todo" :rules="todoRules" ref="todo">
             <el-form-item label="" prop="name">
-                <el-input v-model="todo.name" placeholder="タスク名を入力" clearable>
+                <el-input v-model="form.todo.name" placeholder="タスク名を入力" clearable>
                     <el-button slot="append" class="add" size="mini" @click="insertTask">追加</el-button>
                 </el-input>
             </el-form-item>
         </el-form>
 
         <!-- タスク一覧 -->
-        <el-table :data="tasks" :show-header="false" stripe>
+        <el-table :data="form.tasks" :show-header="false" stripe>
             <el-table-column prop="name" width="auto"></el-table-column>
             <el-table-column align="center" width="100px">
                 <template slot-scope="record">
@@ -29,18 +29,23 @@
 
     import Translator from "@ts/Domain/Translator";
     import TodoUseCase from "@ts/Domain/UseCase/TodoUseCase";
+    import Container from "@ts/Domain/Container"
+
+    const todoUseCase = new TodoUseCase(Container.instance("TodoRepository"), Translator.todoForm());
 
     export default {
         data() {
             return {
-                tasks: [],
-                todo: Translator.todo(),
+                form: {},
                 todoRules: {
                     name: [
                         {required: true, message: '入力必須です', trigger: 'blur'}
                     ]
                 }
             }
+        },
+        created: function () {
+            this.form = todoUseCase.getForm()
         },
         methods: {
             // タスク追加
@@ -50,14 +55,12 @@
                         return;
                     }
 
-                    TodoUseCase.addTodo(this.tasks, this.todo);
-                    this.todo = Translator.todo()
-
+                    todoUseCase.addTodo(this.form.todo);
                 })
             },
             // レコード削除
             deleteTask(index) {
-                TodoUseCase.deleteTodo(this.tasks, index);
+                todoUseCase.deleteTodo(index);
             }
         }
     };

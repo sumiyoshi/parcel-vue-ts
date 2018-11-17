@@ -9,6 +9,14 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI, {locale});
 //endregion
 
+//region DI Container
+
+import Container from "@ts/Domain/Container";
+import TodoStore from "@ts/Infrastructure/Store/TodoStore";
+
+Container.bind("TodoRepository", TodoStore);
+//endregion
+
 Vue.config.productionTip = false;
 
 new Vue({
