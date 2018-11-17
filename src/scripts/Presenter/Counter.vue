@@ -1,8 +1,8 @@
 <template>
     <div>
         <p>カウント：{{ counter.count }}</p>
-        <button @click="onClickCountUp">countUp</button>
-        <button @click="onClickCountDown">countDown</button>
+        <button class="up" @click="onClickCountUp">countUp</button>
+        <button class="down" @click="onClickCountDown">countDown</button>
     </div>
 </template>
 
