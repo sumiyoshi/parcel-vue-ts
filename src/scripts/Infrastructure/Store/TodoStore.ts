@@ -1,6 +1,10 @@
 export default class TodoStore implements TodoRepository {
 
-    private key: string = 'todo';
+    private key: string;
+
+    public constructor() {
+        this.key = 'todo';
+    }
 
     public delete(id: number): boolean {
 
@@ -33,7 +37,6 @@ export default class TodoStore implements TodoRepository {
         localStorage.setItem(this.key, JSON.stringify(tasks));
         return true;
     }
-
 
 
 }

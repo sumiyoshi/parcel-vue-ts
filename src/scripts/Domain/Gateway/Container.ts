@@ -6,7 +6,7 @@ export default class Container {
         Container.bindList[key] = instance;
     }
 
-    static instance<T>(d: string): T {
+    static get<T>(d: string): T | null {
         return new Container.bindList[d];
     }
 }

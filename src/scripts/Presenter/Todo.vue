@@ -29,9 +29,9 @@
 
     import Translator from "@ts/Domain/Translator";
     import TodoUseCase from "@ts/Domain/UseCase/TodoUseCase";
-    import Container from "@ts/Domain/Container"
+    import Container from "@ts/Domain/Gateway/Container"
 
-    const todoUseCase = new TodoUseCase(Container.instance("TodoRepository"), Translator.todoForm());
+    const todoUseCase = new TodoUseCase(Container.get("TodoRepository"), Translator.todoForm());
 
     export default {
         data() {
