@@ -3,7 +3,6 @@ import TodoUseCase from "@/scripts/Domain/UseCase/TodoUseCase"
 
 describe('TodoUseCase.ts', () => {
     it('add task', () => {
-        let todo: Todo = {name: "some name"}
         let form: TodoForm = {
             tasks: [],
             todo: {name: 'some name'}
@@ -11,7 +10,7 @@ describe('TodoUseCase.ts', () => {
 
         let todoUseCase = new TodoUseCase(new TodoStore, form)
 
-        todoUseCase.addTodo(todo)
+        todoUseCase.addTodo()
         expect(todoUseCase.getForm().tasks.length).to.equal(3)
         expect(todoUseCase.getForm().tasks[2].name).to.equal("some name")
     })

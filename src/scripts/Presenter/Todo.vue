@@ -6,14 +6,14 @@
     <!-- タスク入力 -->
     <el-form
       ref="todo"
-      :model="form.todo"
+      :model="todoUseCase.getForm().todo"
       :rules="todoRules"
     >
       <el-form-item
         label=""
         prop="name">
         <el-input
-          v-model="form.todo.name"
+          v-model="todoUseCase.getForm().todo.name"
           placeholder="タスク名を入力"
           clearable>
           <el-button
@@ -28,7 +28,7 @@
 
     <!-- タスク一覧 -->
     <el-table
-      :data="form.tasks"
+      :data="todoUseCase.getForm().tasks"
       :show-header="false"
       stripe>
       <el-table-column
@@ -53,43 +53,41 @@
 
 <script>
 
-  import Translator from '@ts/Domain/Translator'
-  import TodoUseCase from '@ts/Domain/UseCase/TodoUseCase'
-  import Container from '@ts/Domain/Gateway/Container'
+    import Translator from '@ts/Domain/Translator'
+    import TodoUseCase from '@ts/Domain/UseCase/TodoUseCase'
+    import Container from '@ts/Domain/Gateway/Container'
 
-  const todoUseCase = new TodoUseCase(Container.get('TodoRepository'), Translator.todoForm())
+    export default {
+        data() {
+            return {
+                todoUseCase: {},
+                todoRules: {
+                    name: [
+                        {required: true, message: '入力必須です', trigger: 'blur'}
+                    ]
+                }
+            }
+        },
+        created: function () {
+            this.todoUseCase = new TodoUseCase(Container.get('TodoRepository'), Translator.todoForm())
+        },
+        methods: {
+            // タスク追加
+            insertTask() {
+                this.$refs.todo.validate((valid) => {
+                    if (!valid) {
+                        return
+                    }
 
-  export default {
-    data() {
-      return {
-        form: {},
-        todoRules: {
-          name: [
-            {required: true, message: '入力必須です', trigger: 'blur'}
-          ]
+                    this.todoUseCase.addTodo()
+                })
+            },
+            // レコード削除
+            deleteTask(index) {
+                this.todoUseCase.deleteTodo(index)
+            }
         }
-      }
-    },
-    created: function () {
-      this.form = todoUseCase.getForm()
-    },
-    methods: {
-      // タスク追加
-        insertTask() {
-        this.$refs.todo.validate((valid) => {
-          if (!valid) {
-            return
-          }
-
-          todoUseCase.addTodo(this.form.todo)
-        })
-      },
-      // レコード削除
-      deleteTask(index) {
-        todoUseCase.deleteTodo(index)
-      }
     }
-  }
 </script>
 
 <style scoped lang="scss">

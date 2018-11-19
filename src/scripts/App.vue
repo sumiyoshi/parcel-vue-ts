@@ -11,12 +11,5 @@
 </template>
 
 <script>
-  import '@scss/app.scss'
-
-  import TodoStore from '@ts/Infrastructure/Store/TodoStore'
-  import Container from '@ts/Domain/Gateway/Container'
-
-  // if (process.env.NODE_ENV !== "test") {
-  Container.bind('TodoRepository', TodoStore)
-  // }
+    import '@scss/app.scss'
 </script>

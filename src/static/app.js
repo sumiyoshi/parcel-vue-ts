@@ -10,6 +10,11 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI, {locale})
 //endregion
 
+//region DI Container
+import Container from '@ts/Domain/Gateway/Container'
+Container.bind('TodoRepository', require('@ts/Infrastructure/Store/TodoStore').default)
+//endregion
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -20,9 +20,9 @@ export default class TodoUseCase {
         return this.form
     }
 
-    public addTodo(todo: Todo): void {
-        this.form.tasks.push(todo)
-        this.todoRepository.add(todo)
+    public addTodo(): void {
+        this.form.tasks.push(this.form.todo)
+        this.todoRepository.add(this.form.todo)
 
         this.form.todo = Translator.todo()
     }
