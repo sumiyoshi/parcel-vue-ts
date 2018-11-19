@@ -9,4 +9,8 @@ export default class Container {
     public static bind(key: string, instance: any) {
         Container.bindList[key] = instance
     }
+
+    public static set(bindList: { [key: string]: any }) {
+        Container.bindList = bindList
+    }
 }

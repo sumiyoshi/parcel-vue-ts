@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from 'App.vue'
-import router from './router'
 
 //region ElementUI
 import ElementUI from 'element-ui'
@@ -10,9 +9,19 @@ import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(ElementUI, {locale})
 //endregion
 
+//region Router
+import Router from 'vue-router'
+Vue.use(Router)
+const router = new Router({
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: require('../router')
+})
+//endregion
+
 //region DI Container
 import Container from '@ts/Domain/Gateway/Container'
-Container.bind('TodoRepository', require('@ts/Infrastructure/Store/TodoStore').default)
+Container.set(require('../container'))
 //endregion
 
 Vue.config.productionTip = false

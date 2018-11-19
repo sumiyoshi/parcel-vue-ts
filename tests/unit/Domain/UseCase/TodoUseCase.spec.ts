@@ -1,5 +1,6 @@
 import {expect} from 'chai'
 import TodoUseCase from "@/scripts/Domain/UseCase/TodoUseCase"
+import TodoStoreStub from "@/../tests/stub/Store/TodoStoreStub"
 
 describe('TodoUseCase.ts', () => {
     it('add task', () => {
@@ -8,7 +9,7 @@ describe('TodoUseCase.ts', () => {
             todo: {name: 'some name'}
         }
 
-        let todoUseCase = new TodoUseCase(new TodoStore, form)
+        let todoUseCase = new TodoUseCase(new TodoStoreStub, form)
 
         todoUseCase.addTodo()
         expect(todoUseCase.getForm().tasks.length).to.equal(3)
@@ -22,7 +23,7 @@ describe('TodoUseCase.ts', () => {
             todo: {name: 'some name'}
         }
 
-        let todoUseCase = new TodoUseCase(new TodoStore, form)
+        let todoUseCase = new TodoUseCase(new TodoStoreStub, form)
 
         todoUseCase.deleteTodo(0)
 
@@ -30,25 +31,3 @@ describe('TodoUseCase.ts', () => {
         expect(todoUseCase.getForm().tasks[0].name).to.equal("some name2")
     })
 })
-
-class TodoStore implements TodoRepository {
-
-    public delete(id: number): boolean {
-        return true
-    }
-
-    public find(): Array<Todo> {
-        return [
-            {name: "some name1"},
-            {name: "some name2"}
-        ]
-    }
-
-    public add(todo: Todo): boolean {
-        return true
-    }
-
-    private save(tasks: Array<Todo>): boolean {
-        return true
-    }
-}
