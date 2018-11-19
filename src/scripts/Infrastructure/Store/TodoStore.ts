@@ -30,7 +30,6 @@ export default class TodoStore implements TodoRepository {
         list.push(todo)
 
         return this.save(list)
-
     }
 
     private save(tasks: Array<Todo>): boolean {

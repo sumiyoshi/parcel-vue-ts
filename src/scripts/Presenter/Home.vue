@@ -1,20 +1,20 @@
 <template>
-    <div>
-        <p>
-            {{ msg }}
-        </p>
-    </div>
+  <div>
+    <p>
+      {{ msg }}
+    </p>
+  </div>
 </template>
 
-<script type="ts">
+<script>
 
-    export default  {
-        data() {
-            return {
-                msg: 'Hello World!'
-            }
-        },
+  export default {
+    data() {
+      return {
+        msg: 'Hello World!'
+      }
     }
+  }
 
 </script>
 

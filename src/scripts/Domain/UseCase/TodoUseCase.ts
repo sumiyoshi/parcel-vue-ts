@@ -1,4 +1,4 @@
-import Translator from "@ts/Domain/Translator"
+import Translator from '@ts/Domain/Translator'
 
 export default class TodoUseCase {
 
