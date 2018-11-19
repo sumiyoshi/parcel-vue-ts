@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from 'Presenter/Home.vue'
 import Todo from 'Presenter/Todo.vue'
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
   mode: 'history',

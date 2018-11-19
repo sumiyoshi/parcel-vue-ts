@@ -27,11 +27,11 @@
 
 <script type="ts">
 
-    import Translator from "@ts/Domain/Translator";
-    import TodoUseCase from "@ts/Domain/UseCase/TodoUseCase";
+    import Translator from "@ts/Domain/Translator"
+    import TodoUseCase from "@ts/Domain/UseCase/TodoUseCase"
     import Container from "@ts/Domain/Gateway/Container"
 
-    const todoUseCase = new TodoUseCase(Container.get("TodoRepository"), Translator.todoForm());
+    const todoUseCase = new TodoUseCase(Container.get("TodoRepository"), Translator.todoForm())
 
     export default {
         data() {
@@ -52,18 +52,18 @@
             insertTask() {
                 this.$refs.todo.validate((valid) => {
                     if (!valid) {
-                        return;
+                        return
                     }
 
-                    todoUseCase.addTodo(this.form.todo);
+                    todoUseCase.addTodo(this.form.todo)
                 })
             },
             // レコード削除
             deleteTask(index) {
-                todoUseCase.deleteTodo(index);
+                todoUseCase.deleteTodo(index)
             }
         }
-    };
+    }
 </script>
 
 <style scoped lang="scss">
