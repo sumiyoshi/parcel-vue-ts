@@ -1,5 +1,5 @@
 <template>
-  <el-main>
+  <div class="main">
 
     <div class="title">Todo</div>
 
@@ -48,7 +48,7 @@
       </el-table-column>
     </el-table>
 
-  </el-main>
+  </div>
 </template>
 
 <script>
@@ -91,7 +91,7 @@
 </script>
 
 <style scoped lang="scss">
-  main.el-main {
+  .main {
     width: 600px;
     margin: 0 auto;
   }
