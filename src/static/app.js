@@ -19,9 +19,9 @@ const router = new Router({
 })
 //endregion
 
-//region DI Container
-import Container from '@ts/Domain/Gateway/Container'
-Container.set(require('../container'))
+//region GatewayLocator
+import GatewayLocator from '@ts/Domain/Gateway/GatewayLocator'
+GatewayLocator.set(require('../gateway'))
 //endregion
 
 Vue.config.productionTip = false

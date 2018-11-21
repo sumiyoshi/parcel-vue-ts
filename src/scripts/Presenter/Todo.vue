@@ -55,7 +55,7 @@
 
     import Translator from '@ts/Domain/Translator'
     import TodoUseCase from '@ts/Domain/UseCase/TodoUseCase'
-    import Container from '@ts/Domain/Gateway/Container'
+    import GatewayLocator from '@ts/Domain/Gateway/GatewayLocator'
 
     export default {
         data() {
@@ -69,7 +69,7 @@
             }
         },
         created: function () {
-            this.todoUseCase = new TodoUseCase(Container.get('TodoRepository'), Translator.todoForm())
+            this.todoUseCase = new TodoUseCase(GatewayLocator.get('TodoRepository'), Translator.todoForm())
         },
         methods: {
             // タスク追加

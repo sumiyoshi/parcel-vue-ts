@@ -6,8 +6,8 @@ import Vue from 'vue'
 import ElementUI from 'element-ui'
 Vue.use(ElementUI);
 
-import Container from '@/scripts/Domain/Gateway/Container'
-Container.set(require('@/../tests/container'))
+import GatewayLocator from '@/scripts/Domain/Gateway/GatewayLocator'
+GatewayLocator.set(require('@/../tests/container'))
 
 describe('Todo.vue', () => {
     it('render /todo', () => {

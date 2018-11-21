@@ -1,16 +1,16 @@
-export default class Container {
+export default class GatewayLocator {
 
     private static bindList: { [key: string]: any } = {}
 
     public static get<T>(d: string): T | null {
-        return new Container.bindList[d]
+        return new GatewayLocator.bindList[d]
     }
 
     public static bind(key: string, instance: any) {
-        Container.bindList[key] = instance
+        GatewayLocator.bindList[key] = instance
     }
 
     public static set(bindList: { [key: string]: any }) {
-        Container.bindList = bindList
+        GatewayLocator.bindList = bindList
     }
 }
